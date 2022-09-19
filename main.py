@@ -23,14 +23,13 @@ count = 0
 game_is_on = True
 while game_is_on:
     time.sleep(0.3)
-    print(count)
     for car in cars:
         car.moves()
-    if count+score.level == 15 :
+    if count+score.level == 15:
         temp = CarManager()
         cars.append(temp)
         count = 0
-    else :
+    else:
         count += 1
     screen.update()
 
@@ -39,7 +38,7 @@ while game_is_on:
         score.update_scoreboard()
         tim.reset()
     for car in cars:
-        if tim.distance(car)<15:
+        if tim.distance(car)<20:
             score.game_over()
             game_is_on = False
     if score.level >= 15:
